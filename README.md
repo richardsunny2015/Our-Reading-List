@@ -4,7 +4,6 @@ A website that allows users to create and track their reading lists.
 
 ## Incomplete User Stories
 
-* Users can login/logout.
 * Users can query books.
 * Users can add books to their reading lists.
 * Users can remove books from their reading lists.
@@ -12,7 +11,7 @@ A website that allows users to create and track their reading lists.
 
 ## Complete User Stories
 
-To be updated...
+* Users can login/logout.
 
 ## Notes
 
