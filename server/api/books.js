@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const axios = require('axios')
+const {Book} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -11,4 +12,20 @@ router.get('/', async (req, res, next) => {
   )
   const {data} = bookQuery
   res.status(200).send(data.items)
+})
+
+router.post('/', async (req, res, next) => {
+  const {userId, title, authors, thumbnail, pageCount, description} = req.body
+  const requestedBook = {
+    userId,
+    title,
+    authors,
+    thumbnail,
+    pageCount,
+    description
+  }
+  const [createdBook, wasCreated] = await Book.findOrCreate({
+    where: requestedBook
+  })
+  res.status(201).send(createdBook)
 })
