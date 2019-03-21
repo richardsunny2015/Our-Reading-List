@@ -8,13 +8,14 @@ describe('parseBooks', () => {
     solution1 = []
     solution2 = []
     for (let i = 0; i < 10; i++) {
+      // solutions
       solution1.push({
         id: faker.random.alphaNumeric(),
         authors: [faker.name.findName()],
         pageCount: faker.random.number(),
         publishedDate: faker.date.past(),
         description: faker.lorem.paragraph(),
-        imageLinks: faker.image.imageUrl()
+        thumbnail: faker.image.imageUrl()
       })
       const solution2temp = {
         id: faker.random.alphaNumeric(),
@@ -23,17 +24,19 @@ describe('parseBooks', () => {
         publishedDate: faker.date.past(),
         description: faker.lorem.paragraph()
       }
-      if (i % 2 === 0) solution2temp.imageLinks = faker.image.imageUrl()
+      if (i % 2 === 0) solution2temp.thumbnail = faker.image.imageUrl()
       solution2.push(solution2temp)
     }
+    // examples
     example1 = solution1.map(
-      ({id, authors, pageCount, publishedDate, description}) => ({
+      ({id, authors, pageCount, publishedDate, description, thumbnail}) => ({
         id,
         volumeInfo: {
           authors,
           pageCount,
           description,
-          publishedDate
+          publishedDate,
+          thumbnail
         }
       })
     )
@@ -47,8 +50,9 @@ describe('parseBooks', () => {
           publishedDate: obj.publishedDate
         }
       }
-      if (obj.hasOwnProperty('imageLinks'))
-        returnObj.volumeInfo.imageLinks = obj.imageLinks
+      if (obj.hasOwnProperty('thumbnail')) {
+        returnObj.volumeInfo.imageLinks = {thumbnail: obj.thumbnail}
+      }
       return returnObj
     })
   })
