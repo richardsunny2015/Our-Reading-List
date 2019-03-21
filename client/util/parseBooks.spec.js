@@ -36,7 +36,7 @@ describe('parseBooks', () => {
           pageCount,
           description,
           publishedDate,
-          thumbnail
+          imageLinks: {thumbnail}
         }
       })
     )
