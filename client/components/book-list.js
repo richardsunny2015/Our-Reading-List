@@ -5,7 +5,9 @@ const BookList = ({books}) => {
     <section>
       {books.map(book => (
         <div key={book.id}>
-          <img src={book.volumeInfo.imageLinks.thumbnail} />
+          {book.volumeInfo.imageLinks && (
+            <img src={book.volumeInfo.imageLinks.thumbnail} />
+          )}
           <h4>Title: {book.volumeInfo.title}</h4>
           <p>Author: {book.volumeInfo.authors.join(', ')}</p>
           <p>Page Count: {book.volumeInfo.pageCount}</p>
