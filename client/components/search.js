@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import SearchBar from './search-bar'
 import BookList from './book-list'
 import axios from 'axios'
+import {parseBooks} from '../util'
 
 class Search extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Search extends Component {
           changeHandler={this.changeHandler}
           submitHandler={this.submitHandler}
         />
-        <BookList books={results} />
+        <BookList books={parseBooks(results)} />
       </section>
     )
   }
