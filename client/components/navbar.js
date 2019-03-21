@@ -7,7 +7,7 @@ import {logout} from '../store'
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
     <h1>Our Reading List</h1>
-    <nav>
+    <nav className="flex flex-sb">
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}

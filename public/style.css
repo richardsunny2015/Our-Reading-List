@@ -19,3 +19,13 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.flex {
+  display: flex;
+}
+.flex-sb {
+  justify-content: space-between;
+}
+.flex-sa {
+  justify-content: space-around;
+}
